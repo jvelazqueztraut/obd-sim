@@ -1,0 +1,61 @@
+# src is the official directory
+!src/
+
+# addons.make to indicate which addons are needed
+!addons.make
+
+# ignore bin folders' contents, except data folder therein
+bin/*
+!bin/data/
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+obj/
+
+# Compiled Dynamic libraries
+*.so
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+
+#Compiled app
+*.exe
+*.app
+
+#Codeblocks files
+*.workspace
+*.cbp
+*.layout
+*.depend
+icon.rc
+
+#Visual Studio files
+*.sln
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
+*.sdf
+*.suo
+*.opensdf
+ipch/
+
+#XCode files
+*.plist
+*.xcconfig
+*.xcodeproj
+
+#Misc files
+*.wav
+*.mp3
+#*.png
+#*.jpg
+#*.jpeg
+*.mov
+*.DS_Store
+
+# don't ignore the .gitignore file
+!.gitignore
