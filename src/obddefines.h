@@ -1,7 +1,3 @@
-
-#define OBDSIM_ELM_DEVICE_STRING "OBDSIM_DEVICE"
-#define OBDSIM_ELM_VERSION_STRING "OBDSIM_VERSION"
-
 #include "obdservicecommands.h"
 
 /// This is the elm prompt

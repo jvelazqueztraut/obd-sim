@@ -7,7 +7,10 @@
 #include "obdservicecommands.h"
 
 /// Parse this AT command [assumes that line is already known to be an AT command]
-int parse_ATcmd(struct simsettings *ss, OBDSimPort *sp, char *line, char *response, size_t n);
+int parse_ATcmd(struct simsettings *ss, OBDSimPort *sp, char *line, string& response);
+
+/// Parse this 01 command [assumes that line is already known to be an 01 command]
+int parse_01cmd(struct simsettings *ss, OBDSimPort *sp, char *line, string& response);
 
 /// Render a header into the passed string
 /** \param buf buffer to put rendered header into
