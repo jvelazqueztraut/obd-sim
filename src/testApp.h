@@ -4,6 +4,8 @@
 #include "ofxOBDSim.h"
 #include "ofxOBDCar.h"
 
+#include "ofxGamepadHandler.h"
+
 class testApp : public ofBaseApp{
 
 	public:
@@ -11,6 +13,10 @@ class testApp : public ofBaseApp{
 		void update();
 		void draw();
 		void exit();
+
+		void axisChanged(ofxGamepadAxisEvent &e);
+		void buttonPressed(ofxGamepadButtonEvent &e);
+		void buttonReleased(ofxGamepadButtonEvent &e);
 
 		void keyPressed  (int key);
 		void keyReleased(int key);

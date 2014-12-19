@@ -2,10 +2,20 @@
 
 //--------------------------------------------------------------
 void testApp::setup(){
+	ofSetWindowTitle("OBDSIM");
 	ofSetFrameRate(30);
+	ofSetLogLevel(OF_LOG_VERBOSE);
 
 	string winport="COM27";
 	simulator.open(winport,&car);
+
+	//CHECK IF THERE EVEN IS A GAMEPAD CONNECTED
+	if(ofxGamepadHandler::get()->getNumPads()>0){
+			ofxGamepad* pad = ofxGamepadHandler::get()->getGamepad(0);
+			ofAddListener(pad->onAxisChanged, this, &testApp::axisChanged);
+			ofAddListener(pad->onButtonPressed, this, &testApp::buttonPressed);
+			ofAddListener(pad->onButtonReleased, this, &testApp::buttonReleased);
+	}
 
 	frame=0;
 }
@@ -28,6 +38,24 @@ void testApp::draw(){
 //--------------------------------------------------------------
 void testApp::exit(){
 	simulator.close();
+}
+
+//--------------------------------------------------------------
+void testApp::axisChanged(ofxGamepadAxisEvent& e)
+{
+	cout << "AXIS " << e.axis << " VALUE " << ofToString(e.value) << endl;
+}
+
+//--------------------------------------------------------------
+void testApp::buttonPressed(ofxGamepadButtonEvent& e)
+{
+	cout << "BUTTON " << e.button << " PRESSED" << endl;
+}
+
+//--------------------------------------------------------------
+void testApp::buttonReleased(ofxGamepadButtonEvent& e)
+{
+	cout << "BUTTON " << e.button << " RELEASED" << endl;
 }
 
 //--------------------------------------------------------------
